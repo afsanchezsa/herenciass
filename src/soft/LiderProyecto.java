@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class LiderProyecto extends Programador{
 private ArrayList<Programador>programadores;
 
-    public LiderProyecto(String nombre, double salario, int id, String lenguaje) {
+    public LiderProyecto(String nombre, double salario, int id, String lenguaje)throws Exceptiongo {
         super(nombre, salario, id, lenguaje);
         this.programadores=new ArrayList<>();
     }

@@ -15,6 +15,9 @@ protected double salario;
 
     public Empleado(String nombre, double salario, int id) {
        super(id);
+       if(nombre.length()<5){
+       throw new IllegalArgumentException("nombre debe ser mayoe a 10");
+       }
         this.nombre = nombre;
         this.salario = salario;
     }

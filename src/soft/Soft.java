@@ -6,6 +6,8 @@
 package soft;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,17 +22,63 @@ public class Soft {
         // TODO code application logic here
    Consultor consultor=new Consultor("poo",1);
    Administrador admin=new Administrador("Valeria",220,2);
-   Programador programador=new Programador("isabel",500,3,"java");
-    Programador programador2=new Programador("fabian",600,4,"c");
-   LiderProyecto lider=new LiderProyecto("hernan",600,5,"java");
-   lider.addProgramador(programador);
-   lider.addProgramador(programador2);
-   CompaniaSoftware compania=new CompaniaSoftware("unal");
+  Programador programador=null;
+  Programador programador2=null;
+  Programador programador3=null;
+     CompaniaSoftware compania=new CompaniaSoftware("unal");
+     
+     
+     try{
+     programador3=new Programador("fab",600,4,"c");
+     }catch(IllegalArgumentException e){
+         System.out.println(e.getMessage());
+     }  catch (Exceptiongo ex) {
+          System.out.println(ex.getMessage());
+        }
+     
+     
+     
+     
+     
+   try{
+   programador=new Programador("isabel",500,3,"go");
+    
+     compania.addContrato(programador);
+   }catch(Exceptiongo e){
+       System.out.println(e.getMessage());;
+    
+    }
+   try{
+      
+      programador2=new Programador("fabian",600,4,"c");
+    
+    compania.addContrato(programador2);
+   }catch(Exceptiongo e){
+   
+       System.out.println(e.getMessage());;
+   }
+    try{
+    LiderProyecto lider=new LiderProyecto("hernan",600,5,"java");
+   if(programador2!=null){
+     lider.addProgramador(programador2);
+   }
+  if(programador!=null){
+  lider.addProgramador(programador);
+  }
+     
+      compania.addContrato(lider);
+    }catch(Exceptiongo e){
+        System.out.println(e.getMessage());
+    
+    }
+ 
+   
+  
    compania.addContrato(consultor);
    compania.addContrato(admin);
-   compania.addContrato(programador);
-   compania.addContrato(programador2);
-   compania.addContrato(lider);
+   
+   
+  
           String datosCompania=compania.ListarInformacion();
           System.out.println(datosCompania);
           double valorNomina=compania.CalcularNomina();
